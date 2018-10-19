@@ -1,0 +1,26 @@
+---
+title: "Immigration Project"
+author: "Saiyaz Kazi"
+date: "10/18/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readr)
+library(dplyr)
+
+z <- read_csv("anes_timeseries_cdf.csv")
+```
+
+```{r echo=FALSE}
+x <- z %>% 
+   nrow()
+
+```
+
+My project focuses on trying to track the political voting patterns of immigrants throughout the last decades. The data I am using is from the American National Election Studies' time-series collective data from 1948-2016. Using this data and the ANES codebook, I sohuld be able to isolate for immigrants, location, and then aggregate voting tendencies per state. Hopefully my end product will be a leaflet based program that shows you per decade per state the ratio between democratic/republic votes of immigrants. Tracking that over the years could be useful in seeing, if there, voting patterns, shifts, or critical turns in the aggregate immigrant electoral patterns.
+
+Number of ANES Observations: `r x`
+
