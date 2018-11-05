@@ -22,7 +22,22 @@ temp <- z %>%
   select(V161321a, V161064x, V161010e) %>% 
   filter(V161321a > 0 ) %>% 
   filter (V161064x > 0) %>% 
-  mutate (pref = V161064x %% 2)
+  mutate(V161064x = as.character(V161064x)) %>% 
+  mutate(V161064x = case_when(
+    V161064x == "10" ~ "Dem",
+    V161064x == "11" ~ "Rep",
+    V161064x == "12" ~ "Other",
+    V161064x == "20" ~ "Dem",
+    V161064x == "21" ~ "Rep",
+    V161064x == "22" ~ "Other",
+    V161064x == "30" ~ "Dem",
+    V161064x == "31" ~ "Rep",
+    V161064x == "32" ~ "Other",
+    TRUE ~ V161064x
+  ))
+  
+use_shiny <- write_rds(x = temp, path = "use_shiny")
+v_temp <- unique(vtempv)
   
   
   

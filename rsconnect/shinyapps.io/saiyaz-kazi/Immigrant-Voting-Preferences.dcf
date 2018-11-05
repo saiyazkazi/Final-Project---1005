@@ -1,0 +1,13 @@
+name: Immigrant-Voting-Preferences
+title: Immigrant-Voting-Preferences
+username:
+account: saiyaz-kazi
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 552529
+bundleId: 1681936
+url: https://saiyaz-kazi.shinyapps.io/Immigrant-Voting-Preferences/
+when: 1541384121.43377
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|anes_timeseries_2016_Stata12.dta|anes_timeseries_2016_Stata13.dta|anes_timeseries_2016.dta|anes_timeseries_2016.sav|anes_timeseries_cdf.dta|Img_Project.html|Img_Project.Rmd|imgdf|Immigration Project.Rmd|Immigration_Project.Rmd|README.md|use_shiny
