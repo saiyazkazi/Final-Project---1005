@@ -5,8 +5,7 @@ library(readstata13)
 
 destination <- read_rds(path = "use_shiny")
 
-v_tempA <- destination$V161010e
-v_tempA <- unique(v_tempA)
+v_tempA <- unique(destination$V161010e)
 
 # Define UI ----
 ui <- fluidPage(
@@ -20,7 +19,7 @@ ui <- fluidPage(
       
       selectInput("var", 
                   label = "Choose a variable to display",
-                  choices = c("NY", "CA", "PA"), 
+                  choices = v_tempA, 
                   selected = "NY")
       
       ),
@@ -35,6 +34,7 @@ server <- function(input, output) {
   output$prefPlot <- renderPlot({
     
     destination %>%
+      filter(input$var == V161010e) %>% 
       group_by(V161010e) %>% 
       ggplot(aes(x=V161064x)) + geom_bar() + labs(x = "Party Vote")
     
@@ -43,5 +43,4 @@ server <- function(input, output) {
 
 # Run the app ----
 shinyApp(ui = ui, server = server)
-
 
