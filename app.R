@@ -6,6 +6,7 @@ library(readstata13)
 destination <- read_rds(path = "use_shiny")
 
 v_tempA <- unique(destination$V161010e)
+v_tempA <- sort(v_tempA)
 
 # Define UI ----
 ui <- fluidPage(
@@ -20,7 +21,7 @@ ui <- fluidPage(
       selectInput("var", 
                   label = "Choose a variable to display",
                   choices = v_tempA, 
-                  selected = "NY")
+                  selected = "AK")
       
       ),
     
@@ -43,4 +44,5 @@ server <- function(input, output) {
 
 # Run the app ----
 shinyApp(ui = ui, server = server)
+
 
