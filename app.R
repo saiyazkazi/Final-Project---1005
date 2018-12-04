@@ -37,12 +37,12 @@ server <- function(input, output) {
     destination %>%
       filter(input$var == V161010e) %>% 
       group_by(V161010e) %>% 
-      ggplot(aes(x=V161064x)) + geom_bar() + labs(x = "Party Vote")
+      ggplot(aes(x=V161064x)) + geom_bar() + labs(x = "Party Vote", y = "Vote Strength")
     
   })
 }
 
 # Run the app ----
 shinyApp(ui = ui, server = server)
-
+deployApp(appName = "Img-Voting-By-State", account = "saiyaz-kazi")
 
