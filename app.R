@@ -3,6 +3,10 @@ library(tidyverse)
 library(rsconnect)
 library(readstata13)
 
+destination <- read_rds(path = "use_shiny")
+
+v_tempA <- destination$V161010e
+v_tempA <- unique(v_tempA)
 
 # Define UI ----
 ui <- fluidPage(
@@ -16,7 +20,7 @@ ui <- fluidPage(
       
       selectInput("var", 
                   label = "Choose a variable to display",
-                  choices = v_temp,
+                  choices = c("NY", "CA", "PA"), 
                   selected = "NY")
       
       ),
@@ -29,7 +33,6 @@ ui <- fluidPage(
 # Define server logic ----
 server <- function(input, output) {
   output$prefPlot <- renderPlot({
-    destination <- read_rds(path = "use_shiny")
     
     destination %>%
       group_by(V161010e) %>% 
@@ -40,3 +43,5 @@ server <- function(input, output) {
 
 # Run the app ----
 shinyApp(ui = ui, server = server)
+
+
