@@ -44,4 +44,4 @@ server <- function(input, output) {
 
 # Run the app ----
 shinyApp(ui = ui, server = server)
-
+deployApp(appName = "Img-Votes-By-State-2016", account = "saiyaz-kazi")
