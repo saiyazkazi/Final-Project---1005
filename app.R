@@ -37,7 +37,7 @@ server <- function(input, output) {
     destination %>%
       filter(input$var == V161010e) %>% 
       group_by(V161010e) %>% 
-      ggplot(aes(x=V161064x, color = V161064x)) + geom_bar() + labs(x = "Party Vote", y = "Vote Strength") + scale_color_manual(values = c("#0000ff", "#008000","#ff0000"))
+      ggplot(aes(x=V161064x, color = V161064x)) + geom_bar() + labs(x = "Party Vote", y = "Vote Strength", color = "Party Vote") + scale_color_manual(values = c("#0000ff", "#008000","#ff0000"))
     
   })
 }
